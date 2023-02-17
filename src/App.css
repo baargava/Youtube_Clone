@@ -1,41 +1,109 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+*{
+  text-decoration: none;
+  list-style: none;
+  color: black;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.listsuggest{
+  margin-left: -30em;
+  margin-top: 0em;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.list{
+  margin-top: 3em;
+  z-index: 1000;
 }
+.sidebar{
+  margin-left: 2em;
+  padding:-10em;
+}
+.sidebar h4{
+  cursor: pointer;
+  
+}
+.button{
+  padding: '10px';
+  height: '3px';
+  background-color: rgb(197, 195, 195);
+  border: none;
+  
+}
+.buttonlist{
+  margin: 10px;
+  margin-top: 0em;
+  border: none;
+  border-radius: 10px;
+  margin-left: 4em;
+}
+.buttonlist Button{
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.video{
+  display: flex;
+  flex-wrap: wrap;
+}
+.title{
+  width: 250px;
+  white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    font-weight: bolder;
+    color: black;
+}
+.thumbnail{
+  
+  width: 276px;
+  height: 200px;
+  margin: 0.5em;
+  border-radius: 20px;
+}
+.tiltename{
+  font-weight: lighter;
+  font-size: 2em;
+}
+.listVideo{
+  margin-left: -25px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/*watchpage*/
+.watch{
+  display: flex;
+  flex-direction: column;
+}
+.videoframe{
+ padding-inline: 80px;
+}
+/*commentsContainer*/
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.avatarcom{
+  height: 2em;
+   width: 2em;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.comments{
+  padding-left: 1.2em;
+  margin-left: 20px;
+  display: flex;
+  background-color: rgb(224, 223, 223);
+  border-radius: 20px;
+  margin-block: 0.7em;
+  padding: 0.4em;
 }
-
-.card {
-  padding: 2em;
+.comment{
+  margin-left: 1em;
+  
 }
-
-.read-the-docs {
-  color: #888;
+.replies{
+  padding-left: 5em;
+  border: 0.4px solid black;
+  margin-left: 5em;
+}
+.container{
+  margin: 10px;
+  padding: 32px;
 }
