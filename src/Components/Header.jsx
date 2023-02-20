@@ -54,7 +54,7 @@ const Header = () => {
  > <MenuIcon className='icon'/>
       </IconButton>
     <a href='/' className='aimg'>
-    <img className='logoimg' style={{height:'1.3em',width:'10em',marginLeft:'3em',cursor:'pointer'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
+    <img className='logoimg' style={{height:'1.3em',width:'10em',marginLeft:'5em',cursor:'pointer'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
     </a>
     </div>
     <div style={{marginLeft:'4em',marginTop:'0em',paddingInline:'5em'}} className="searchmain">
