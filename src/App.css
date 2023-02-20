@@ -6,6 +6,7 @@
   text-decoration: none;
   list-style: none;
   color: black;
+  box-sizing: border-box;
 }
 .listsuggest{
   margin-left: -30em;
@@ -23,6 +24,7 @@
   cursor: pointer;
   
 }
+/*button component*/
 .button{
   padding: '10px';
   height: '3px';
@@ -36,6 +38,7 @@
   border: none;
   border-radius: 10px;
   margin-left: 4em;
+  
 }
 .buttonlist Button{
   margin: 5px;
@@ -106,4 +109,37 @@
 .container{
   margin: 10px;
   padding: 32px;
+}
+@media screen and (min-width:200px) and (max-width: 600px){
+  
+.navbar{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+  button {
+  display: none;
+  }
+#avatarimg{
+display: none;}
+  #search{
+   padding: 1em;
+   margin-left: -2em;
+  }
+  .aimg{
+    margin-left: -4em;
+    height: 0.7em;
+  }
+  .searchdiv{
+margin-left: -7em;
+width: 100px;
+  }
+  .card{
+margin-left:5em ;
+  }
+  .icon{
+   margin-top: -0.4em;
+   margin-left: -1em; 
+  }
+
 }

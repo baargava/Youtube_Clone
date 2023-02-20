@@ -4,7 +4,7 @@ import Button from './Button'
 const ButtonList = () => {
   return (
     <>
-    <div className='buttonlist' >
+    <div className='buttonlist'>
       <Button name="NewToYou"/>
       <Button name="Live"/>
       <Button name="Gaming"/>

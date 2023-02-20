@@ -49,20 +49,21 @@ const Header = () => {
   return (
     <>
     <div className='navbar' style={{display:'flex',margin:'1em'}}>
-    <div className='flex'>
+    <div className='imgbox flex'>
     <IconButton sx={{marginLeft:"1em",paddingInline:'0em',cursor:'pointer'}} onClick={() => toggleMenuHandler()}
- > <MenuIcon/>
+ > <MenuIcon className='icon'/>
       </IconButton>
-    <a href='/'>
-    <img style={{height:'1.3em',width:'10em',marginLeft:'5em',cursor:'pointer'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
+    <a href='/' className='aimg'>
+    <img className='logoimg' style={{height:'1.3em',width:'10em',marginLeft:'3em',cursor:'pointer'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
     </a>
     </div>
-    <div style={{marginLeft:'4em',marginTop:'0em',paddingInline:'5em'}}>
-      <div>
+    <div style={{marginLeft:'4em',marginTop:'0em',paddingInline:'5em'}} className="searchmain">
+      <div className='searchdiv'>
       <input type='text' style={{paddingInline:'10em',paddingBlock:'0.5em'}}
       value={searchQuery} onChange={e=>{setSearchQuery(e.target.value)}}
             onFocus={() => setShowSuggestions(true)}
-            onBlur={() => setShowSuggestions(false)}/>
+            onBlur={() => setShowSuggestions(false)}
+            id="search"/>
       <button style={{fontSize:'1.3em', marginTop:'0.2em'}}>🔍</button>
       </div>
     </div>
@@ -77,7 +78,7 @@ const Header = () => {
     )}
     <div>
 
-      <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="avatar" style={{width:'3em' ,height:'3em',marginLeft:'5em',cursor:'pointer'}}/>
+      <img src="https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png" alt="avatar" style={{width:'3em' ,height:'3em',marginLeft:'5em',cursor:'pointer'}} id="avatarimg"/>
     </div>
     </div>
     </>
