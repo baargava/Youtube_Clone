@@ -5,6 +5,7 @@ import {YOUTUBE_SEARCH_API, YOUTUBE_VIDEOS_API} from '../UTILS/constants';
 import {cacheResults} from '../UTILS/searchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconButton } from '@mui/material';
+import VideoContainer from './VideoContainer';
 
 const Header = () => {
   const[searchQuery,setSearchQuery]=useState('')
@@ -49,29 +50,30 @@ const Header = () => {
   return (
     <>
     <div className='navbar' style={{display:'flex',margin:'1em'}}>
-    <div className='imgbox flex'>
-    <IconButton sx={{marginLeft:"1em",paddingInline:'0em',cursor:'pointer'}} onClick={() => toggleMenuHandler()}
- > <MenuIcon className='icon'/>
+    <div className='imgbox flex' style={{width:'14rem'}}>
+    <IconButton sx={{marginLeft:"1em",fontSize:'0em',cursor:'pointer'}} onClick={() => toggleMenuHandler()}
+ > <MenuIcon className='icon' sx={{padding:'0'}}/>
       </IconButton>
     <a href='/' className='aimg'>
-    <img className='logoimg' style={{height:'1.3em',width:'10em',marginLeft:'5em',cursor:'pointer'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
+    <img className='logoimg' style={{height:'1.3em',width:'6em',marginLeft:'1em',cursor:'pointer',marginTop:'0em'}} src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="logo"/>
     </a>
     </div>
     <div style={{marginLeft:'4em',marginTop:'0em',paddingInline:'5em'}} className="searchmain">
       <div className='searchdiv'>
-      <input type='text' style={{paddingInline:'10em',paddingBlock:'0.5em'}}
+      <input type='text' style={{paddingInline:'10em',paddingBlock:'0.8em',borderRadius:'2em',border:'0.3px solid black'}}
       value={searchQuery} onChange={e=>{setSearchQuery(e.target.value)}}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
+            placeholder="Search..."
             id="search"/>
-      <button style={{fontSize:'1.3em', marginTop:'0.2em'}}>🔍</button>
+      <button style={{fontSize:'1.8em', marginTop:'0.1em',marginLeft:'-0.05em',borderRadius:'1em',border:'0px solid black'}}>🔍</button>
       </div>
     </div>
     {showSuggestions&&(
       <div>
         <ul className='list'>
           {suggestions.map((s)=>(
-            <li key={s} className="listsuggest">🔍{s}</li>
+            <li key={s} className="listsuggest" style={{paddingInline:'1em'}}>🔍{s}</li>
           ))}
         </ul>
       </div>
