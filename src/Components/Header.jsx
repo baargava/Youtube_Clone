@@ -6,12 +6,56 @@ import {cacheResults} from '../UTILS/searchSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconButton } from '@mui/material';
 import VideoContainer from './VideoContainer';
+import { useNavigate,Link } from 'react-router-dom';
+import axios from 'react-axios'
 
 const Header = () => {
   const[searchQuery,setSearchQuery]=useState('')
   const[showSuggestions,setShowSuggestions]=useState(false)
   const[suggestions,setSuggestions]=useState([])
   const API_KEY = "AIzaSyBiNmien1UOkDQpMFEJAJcbX5iIkIt2kDk";
+  //for search results
+  const nav=useNavigate();
+ 
+    const searchVideos = () => {
+      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=40&key=${API_KEY}`;
+    
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          nav("/results", {
+            state: {
+              videos: data.items,
+            },
+          });
+        })
+        .catch((err) => {
+          console.log("ERROR: ", err);
+        });
+    };
+    
+  
+  const searchVideo = () => {
+    axios({
+        method: "GET",
+        url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=40&key=${API_KEY}`
+    }).then((res) => {
+        nav("/results", {
+            state: {
+                videos: res.data.items
+               }
+        })
+        console.log(state)
+    }).catch((err) => {
+        console.log("ERROR: ", err);
+    })
+}
+const handleKeyDown = (event) => {
+  if (event.key === 'Enter') {
+    searchVideo;
+  }
+}
+
 
 
   const cacheSearch=useSelector((store)=>store.search)
@@ -34,7 +78,6 @@ const Header = () => {
   const getSearchSugsestions=async()=>{
   const data=await fetch(`http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchQuery}`);
   const searchjson=await data.json();
-  console.log(searchjson[1]);
   setSuggestions(searchjson[1])
   dispatch(
     cacheResults({
@@ -64,9 +107,10 @@ const Header = () => {
       value={searchQuery} onChange={e=>{setSearchQuery(e.target.value)}}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
+           // onKeyDown={(e) => e.key === 'Enter' && searchVideos()}
             placeholder="Search..."
             id="search"/>
-      <button style={{fontSize:'1.8em', marginTop:'0.1em',marginLeft:'-0.05em',borderRadius:'1em',border:'0px solid black'}}>🔍</button>
+      <button /*onClick={searchVideos}*/ style={{fontSize:'1.8em', marginTop:'0.1em',marginLeft:'-0.05em',borderRadius:'1em',border:'0px solid black'}}>🔍</button>
       </div>
     </div>
     {showSuggestions&&(

@@ -5,7 +5,7 @@ const VideoCard = ({ info }) => {
   const { channelTitle, title, thumbnails } = snippet;
 
   return (
-    <div  className="card">
+    <div  className="card" style={{display:'flex',flexWrap:'wrap',flexDirection:'column'}}>
       <img className="thumbnail" alt="thumbnail" src={thumbnails.medium.url} />
       <ul className="listVideo">
         <li className="title">{title}</li>
