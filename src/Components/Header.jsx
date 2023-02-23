@@ -115,7 +115,7 @@ const handleKeyDown = (event) => {
     </div>
     {showSuggestions&&(
       <div>
-        <ul className='list'>
+        <ul className='list text-pink-900'>
           {suggestions.map((s)=>(
             <li key={s} className="listsuggest" style={{paddingInline:'1em'}}>🔍{s}</li>
           ))}
