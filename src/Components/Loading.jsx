@@ -4,7 +4,7 @@ const Loading = () => {
   return (
     <div className="loading-container">
       <div className="lds-ripple">
-        <div></div>
+        <div>loading...</div>
         <div></div>
       </div>
     </div>
