@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IconButton } from '@mui/material';
 import VideoContainer from './VideoContainer';
 import { useNavigate,Link } from 'react-router-dom';
-import axios from 'react-axios'
 
 const Header = () => {
   const[searchQuery,setSearchQuery]=useState('')
@@ -17,45 +16,7 @@ const Header = () => {
   //for search results
   const nav=useNavigate();
  
-    const searchVideos = () => {
-      const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=40&key=${API_KEY}`;
-    
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          nav("/results", {
-            state: {
-              videos: data.items,
-            },
-          });
-        })
-        .catch((err) => {
-          console.log("ERROR: ", err);
-        });
-    };
-    
-  
-  const searchVideo = () => {
-    axios({
-        method: "GET",
-        url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=40&key=${API_KEY}`
-    }).then((res) => {
-        nav("/results", {
-            state: {
-                videos: res.data.items
-               }
-        })
-        console.log(state)
-    }).catch((err) => {
-        console.log("ERROR: ", err);
-    })
-}
-const handleKeyDown = (event) => {
-  if (event.key === 'Enter') {
-    searchVideo;
-  }
-}
-
+   
 
 
   const cacheSearch=useSelector((store)=>store.search)
