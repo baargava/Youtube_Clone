@@ -78,7 +78,16 @@ const Header = () => {
       <div>
         <ul className='list text-pink-900'>
           {suggestions.map((s)=>(
-            <li key={s} className="listsuggest" style={{paddingInline:'1em'}}>🔍{s}</li>
+            <li key={s} className="listsuggest" style={{paddingInline:'1em'}}>
+              <button
+                      onClick={(e) => {
+                        console.log(e?.currentTarget?.children[1]?.innerHTML);
+                        setSearchQuery(e?.currentTarget?.children[1]?.innerHTML);
+                      }}
+                    >
+                      🔍 <span > {s} </span>
+                    </button>
+            </li>
           ))}
         </ul>
       </div>
